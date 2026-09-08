@@ -1,16 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AuditSection from '@/components/AuditSection';
+import { client } from '@/sanity/lib/client'
+import { SERVICES_QUERY } from '@/sanity/lib/queries'
 
+type Service = {
+  _id: string;
+  title: string;
+  description: string;
+  slug: string;
+};
 
-  // ...rest of your existing state (selectedTimezone, selectedDate, testimonials array, faqs array, etc.) stays exactly as it was
 export default function Home() {
 
-   const [isLightMode, setIsLightMode] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+    const [services, setServices] = useState<Service[]>([]);
+
+  useEffect(() => {
+    client.fetch(SERVICES_QUERY).then((data: Service[]) => setServices(data));
+  }, []);
 
   const navLinks = [
     { href: '/', label: 'The Problem' },
@@ -18,10 +30,10 @@ export default function Home() {
     { href: '/use-cases', label: 'Use Cases' },
     { href: '/services', label: 'Services' },
     { href: '/pricing', label: 'Pricing' },
-    { href: '/industry-blueprints', label: 'Industry Blueprints' },
+    { href: '/industry-blueprints', label: 'Industry Blueprints' }, 
     { href: '/roi-calculator', label: 'ROI Calculator' },
     { href: '/about-us', label: 'About Us' },
-    { href: '#blog', label: 'Blog' },
+    { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -643,11 +655,9 @@ export default function Home() {
       }`}>
         <div className="max-w-[1300px] mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5 ${
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-6 ${
               isLightMode ? 'text-slate-900' : 'text-white'
-            }`}>
-              Everything You Need to <br /> Automate Growth
-            </h2>
+            }`}>Everything You Need to Automate Growth</h2>
             <p className={`text-base sm:text-lg ${isLightMode ? 'text-slate-600' : 'text-slate-400'}`}>
               We provide end-to-end AI and automation solutions tailored for local businesses.
             </p>
@@ -656,7 +666,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className={`group relative overflow-hidden rounded-3xl p-8 border transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between ${
               isLightMode 
-                ? 'bg-slate-50 border-slate-200 hover:border-[#7d5aff]' 
+                ? 'bg-slate-50 border-slbookate-200 hover:border-[#7d5aff]' 
                 : 'bg-[#060a14] border-slate-800/90 hover:border-[#7d5aff]'
             }`}>
               <div className="absolute top-2 right-2 text-[#7d5aff]/10 group-hover:text-[#7d5aff]/25 transition-all duration-300 group-hover:scale-105 pointer-events-none">
@@ -1143,7 +1153,7 @@ export default function Home() {
   isLightMode ? 'bg-slate-50 border-slate-200' : 'bg-[#01050e] border-slate-800/80'
 }`}>
   <div className="max-w-4xl mx-auto text-center">
-    <h2 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 ${
+    <h2 className={`text-3xl md:text-5xl font-extrabold tracking-tight mb-4 ${
       isLightMode ? 'text-slate-900' : 'text-white'
     }`}>
       Book Your Free Demo
@@ -1337,7 +1347,9 @@ export default function Home() {
       >
         <div className="max-w-[580px] mx-auto">
           <div className="text-center mb-6">
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            <h2 className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
+              isLightMode ? 'text-slate-900' : 'text-white'
+            }`}>
               Get In Touch
             </h2>
             <p className={`mt-2 text-sm sm:text-base ${isLightMode ? 'text-slate-600' : 'text-slate-400'}`}>
@@ -1486,7 +1498,7 @@ export default function Home() {
               <a href="/industry-blueprints" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Industry Blueprints</a>
               <a href="/roi-calculator" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>ROI Calculator</a>
               <a href="/about" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>About Us</a>
-              <a href="/#blog" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Blog</a>
+              <a href="/blog" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Blog</a>
               <a href="/contact" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Contact</a>
               <a href="/privacy-policy" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Privacy Policy</a>
               <a href="/terms-of-services" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Terms of Service</a>

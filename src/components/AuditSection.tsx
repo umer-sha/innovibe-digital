@@ -26,8 +26,9 @@ export default function AuditSection({ isLightMode = false }: AuditSectionProps)
           </div>
 
           {/* Heading - Fixed line wrapping to match original */}
-          <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.08]">
-            Find out exactly how much{' '}
+          <h2 className="text-4xl sm:text-4xl lg:text-[56px] font-extrabold tracking-tight leading-[1.08]">
+            Find out exactly how much{''}<br/>
+    
             <span className="text-[#f05252] block sm:inline">
               revenue your website is leaking.
             </span>

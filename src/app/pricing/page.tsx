@@ -21,7 +21,7 @@ export default function PricingPage() {
       { href: '/industry-blueprints', label: 'Industry Blueprints' },
       { href: '/roi-calculator', label: 'ROI Calculator' },
       { href: '/about-us', label: 'About Us' },
-      { href: '#blog', label: 'Blog' },
+      { href: '/blog', label: 'Blog' },
       { href: '/contact', label: 'Contact' },
     ];
 
@@ -551,7 +551,7 @@ export default function PricingPage() {
               <a href="/industry-blueprints" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Industry Blueprints</a>
               <a href="/roi-calculator" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>ROI Calculator</a>
               <a href="/about" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>About Us</a>
-              <a href="/#blog" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Blog</a>
+              <a href="/blog" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Blog</a>
               <a href="/contact" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Contact</a>
               <a href="/privacy-policy" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Privacy Policy</a>
               <a href="/terms-of-services" className={`transition ${isLightMode ? 'hover:text-slate-900' : 'hover:text-white'}`}>Terms of Service</a>
