@@ -11,6 +11,14 @@ function urlFor(source: any) {
   return builder.image(source)
 }
 
+export async function generateStaticParams() {
+  const posts = await client.fetch(`*[_type == "blogPost" && defined(slug.current)]{ "slug": slug.current }`)
+  
+  return posts.map((post: { slug: string }) => ({
+    slug: post.slug,
+  }))
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const post = await client.fetch(BLOG_POST_QUERY, { slug: resolvedParams.slug })
