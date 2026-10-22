@@ -25,11 +25,10 @@ export default function AuditSection({ isLightMode = false }: AuditSectionProps)
             <span>Free Business Leakage Audit</span>
           </div>
 
-          {/* Heading - Fixed line wrapping to match original */}
-          <h2 className="text-4xl sm:text-4xl lg:text-[56px] font-extrabold tracking-tight leading-[1.08]">
-            Find out exactly how much{''}<br/>
-    
-            <span className="text-[#f05252] block sm:inline">
+          {/* Heading */}
+          <h2 className="text-4xl sm:text-4xl lg:text-[52px] font-extrabold tracking-tight leading-[1.08]">
+            <span className="block lg:whitespace-nowrap">Find out exactly how much</span>
+            <span className="text-[#f05252] block mt-1">
               revenue your website is leaking.
             </span>
           </h2>
@@ -41,7 +40,7 @@ export default function AuditSection({ isLightMode = false }: AuditSectionProps)
             Most local businesses lose up to 40% of their online leads due to slow response times, missed calls, and lack of automated follow-ups. We'll analyze your current setup and show you the hidden gaps.
           </p>
 
-          {/* Feature Grid - Fixed icon styling */}
+          {/* Feature Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
             {/* Feature 1 */}
             <div className="flex items-center gap-3.5">

@@ -4,3 +4,11 @@ body {
   background-color: rgb(1, 5, 14);
   color: rgb(103, 111, 126);
 }
+.body-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; /* Keeps it thin/regular */
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4B5563;
+  -webkit-font-smoothing: antialiased;
+}
